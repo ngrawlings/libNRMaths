@@ -6,8 +6,37 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		97A337D522A53AEA007341E7 /* Integer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97A337D322A53AEA007341E7 /* Integer.cpp */; };
+		97A337D622A53AEA007341E7 /* Integer.h in Headers */ = {isa = PBXBuildFile; fileRef = 97A337D422A53AEA007341E7 /* Integer.h */; };
+		97C23F3C229B1503006952E4 /* Float.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97C23F3A229B1503006952E4 /* Float.cpp */; };
+		97C23F3D229B1503006952E4 /* Float.h in Headers */ = {isa = PBXBuildFile; fileRef = 97C23F3B229B1503006952E4 /* Float.h */; };
+		97C23F55229B2639006952E4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97C23F54229B2639006952E4 /* main.cpp */; };
+		97C23F56229B2645006952E4 /* Float.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97C23F3A229B1503006952E4 /* Float.cpp */; };
+		97C23F5B229B2746006952E4 /* libnrcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97C23F5A229B2746006952E4 /* libnrcore.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		97C23F4B229B2583006952E4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		97C23F32229AB04B006952E4 /* libLibNrMaths.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLibNrMaths.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		97A337D322A53AEA007341E7 /* Integer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Integer.cpp; sourceTree = "<group>"; };
+		97A337D422A53AEA007341E7 /* Integer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Integer.h; sourceTree = "<group>"; };
+		97C23F32229AB04B006952E4 /* libnrmaths.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libnrmaths.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		97C23F3A229B1503006952E4 /* Float.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Float.cpp; sourceTree = "<group>"; };
+		97C23F3B229B1503006952E4 /* Float.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Float.h; sourceTree = "<group>"; };
+		97C23F4D229B2583006952E4 /* UnitTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = UnitTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		97C23F54229B2639006952E4 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		97C23F5A229B2746006952E4 /* libnrcore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libnrcore.a; path = ../LibNrCore/Debug/libnrcore.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -18,22 +47,61 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		97C23F4A229B2583006952E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97C23F5B229B2746006952E4 /* libnrcore.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		97C23F29229AB04B006952E4 = {
 			isa = PBXGroup;
 			children = (
+				97C23F39229B14EA006952E4 /* libnrmaths */,
+				97C23F4E229B2583006952E4 /* UnitTest */,
 				97C23F33229AB04B006952E4 /* Products */,
+				97C23F57229B2712006952E4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		97C23F33229AB04B006952E4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				97C23F32229AB04B006952E4 /* libLibNrMaths.a */,
+				97C23F32229AB04B006952E4 /* libnrmaths.a */,
+				97C23F4D229B2583006952E4 /* UnitTest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		97C23F39229B14EA006952E4 /* libnrmaths */ = {
+			isa = PBXGroup;
+			children = (
+				97A337D422A53AEA007341E7 /* Integer.h */,
+				97A337D322A53AEA007341E7 /* Integer.cpp */,
+				97C23F3B229B1503006952E4 /* Float.h */,
+				97C23F3A229B1503006952E4 /* Float.cpp */,
+			);
+			path = libnrmaths;
+			sourceTree = "<group>";
+		};
+		97C23F4E229B2583006952E4 /* UnitTest */ = {
+			isa = PBXGroup;
+			children = (
+				97C23F54229B2639006952E4 /* main.cpp */,
+			);
+			path = UnitTest;
+			sourceTree = "<group>";
+		};
+		97C23F57229B2712006952E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				97C23F5A229B2746006952E4 /* libnrcore.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -43,6 +111,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97C23F3D229B1503006952E4 /* Float.h in Headers */,
+				97A337D622A53AEA007341E7 /* Integer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,8 +133,25 @@
 			);
 			name = LibNrMaths;
 			productName = LibNrMaths;
-			productReference = 97C23F32229AB04B006952E4 /* libLibNrMaths.a */;
+			productReference = 97C23F32229AB04B006952E4 /* libnrmaths.a */;
 			productType = "com.apple.product-type.library.static";
+		};
+		97C23F4C229B2583006952E4 /* UnitTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97C23F51229B2583006952E4 /* Build configuration list for PBXNativeTarget "UnitTest" */;
+			buildPhases = (
+				97C23F49229B2583006952E4 /* Sources */,
+				97C23F4A229B2583006952E4 /* Frameworks */,
+				97C23F4B229B2583006952E4 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UnitTest;
+			productName = UnitTest;
+			productReference = 97C23F4D229B2583006952E4 /* UnitTest */;
+			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
@@ -72,15 +159,19 @@
 		97C23F2A229AB04B006952E4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Liquidsoft Studio";
 				TargetAttributes = {
 					97C23F31229AB04B006952E4 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
+					97C23F4C229B2583006952E4 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
 				};
 			};
-			buildConfigurationList = 97C23F2D229AB04B006952E4 /* Build configuration list for PBXProject "LibNrMaths" */;
+			buildConfigurationList = 97C23F2D229AB04B006952E4 /* Build configuration list for PBXProject "libNrMaths" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -93,6 +184,7 @@
 			projectRoot = "";
 			targets = (
 				97C23F31229AB04B006952E4 /* LibNrMaths */,
+				97C23F4C229B2583006952E4 /* UnitTest */,
 			);
 		};
 /* End PBXProject section */
@@ -102,6 +194,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97A337D522A53AEA007341E7 /* Integer.cpp in Sources */,
+				97C23F3C229B1503006952E4 /* Float.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97C23F49229B2583006952E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97C23F56229B2645006952E4 /* Float.cpp in Sources */,
+				97C23F55229B2639006952E4 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +262,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"\"$(SRCROOT)/../LibNrCore\"",
+					/usr/local/include,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -212,6 +320,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"\"$(SRCROOT)/../LibNrCore\"",
+					/usr/local/include,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -225,7 +338,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4MASABRRSM;
 				EXECUTABLE_PREFIX = lib;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"\"$(SRCROOT)/../LibNrCore\"",
+					/usr/local/include,
+				);
+				PRODUCT_NAME = nrmaths;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -236,15 +354,48 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4MASABRRSM;
 				EXECUTABLE_PREFIX = lib;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"\"$(SRCROOT)/../LibNrCore\"",
+					/usr/local/include,
+				);
+				PRODUCT_NAME = nrmaths;
 				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		97C23F52229B2583006952E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4MASABRRSM;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/gmp/6.1.2_2/lib,
+					"\"$(SRCROOT)/../LibNrCore/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		97C23F53229B2583006952E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4MASABRRSM;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/gmp/6.1.2_2/lib,
+					"\"$(SRCROOT)/../LibNrCore/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		97C23F2D229AB04B006952E4 /* Build configuration list for PBXProject "LibNrMaths" */ = {
+		97C23F2D229AB04B006952E4 /* Build configuration list for PBXProject "libNrMaths" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				97C23F34229AB04B006952E4 /* Debug */,
@@ -258,6 +409,15 @@
 			buildConfigurations = (
 				97C23F37229AB04B006952E4 /* Debug */,
 				97C23F38229AB04B006952E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		97C23F51229B2583006952E4 /* Build configuration list for PBXNativeTarget "UnitTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97C23F52229B2583006952E4 /* Debug */,
+				97C23F53229B2583006952E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
