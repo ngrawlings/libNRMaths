@@ -19,6 +19,15 @@ int main(int argc, const char * argv[]) {
     Memory v2(&b2, 4);
     Integer::byteAddition(v1, v2);
     
+    const char fs[] = {static_cast<char>(0xFF), static_cast<char>(0xFF), static_cast<char>(0xFF), static_cast<char>(0xFF)};
+    
+    v1 = Memory(fs, 4);
+    ByteArray ba(v2);
+    ba.shift(1);
+    v2 = ba.subBytes(0, 4);
+    
+    Integer::clearBits(v1, v2);
+    
     //std::cout << f.toString(10) << "\n";
     
     return 0;

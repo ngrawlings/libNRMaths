@@ -18,7 +18,7 @@ namespace nrcore {
     public:
         Integer(String value, int base);
         Integer(int value);
-        Integer(ByteArray &value);
+        Integer(Memory &value);
         Integer(const Integer &val);
         virtual ~Integer();
 
@@ -32,6 +32,8 @@ namespace nrcore {
         
         static int bitCount(const Memory &val);
         static Memory byteAddition(const Memory &val1, const Memory &val2);
+        static Memory byteMultiplication(const Memory &val1, const Memory &val2);
+        static Memory clearBits(const Memory &subject, const Memory &bits);
         
         size_t length() const;
         
@@ -39,9 +41,11 @@ namespace nrcore {
         
     protected:
         bool sign;
-        ByteArray value;
+        Memory value;
 
         void fromDecimal(String value);
+        
+        
     };
     
 }

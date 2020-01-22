@@ -12,6 +12,9 @@ namespace nrcore {
     
     Integer::Integer(String value, int base) {
         switch (base) {
+            case 10:
+                break;
+                
             case 16:
                 this->value = ByteArray::fromHex(value);
                 break;
@@ -19,11 +22,11 @@ namespace nrcore {
     }
     
     Integer::Integer(int value) {
-        this->value.append(&value, 4);
+        this->value = Memory(&value, 4);
         sign = value >= 0;
     }
     
-    Integer::Integer(ByteArray &value) {
+    Integer::Integer(Memory &value) {
         this->value = value;
     }
     
@@ -36,53 +39,18 @@ namespace nrcore {
     }
     
     void Integer::fromDecimal(String value) {
-        int exponent = 0;
+        ByteArray ba = ByteArray();
         
         size_t len = value.length();
         for (size_t i=0; i<len; i++) {
             char digit = value.operator char *()[i];
             digit -= 48;
-            if (exponent) {
-                
-            }
+            
         }
     }
     
     Integer& Integer::add(const Integer &val) {
-        ByteArray v1, v2, res;
-        int carry = 0;
-        
-        if (value.length() > val.length()) {
-            v1 = value;
-            v2 = val.value;
-        } else {
-            v1 = val.value;
-            v2 = value;
-        }
-        
-        Memory m1 = v1;
-        Memory m2 = v2;
-        
-        int len = (int)v2.length();
-        for (int i=0; i<len; i++) {
-            int v = carry + m1[i] + m2[i];
-            
-            carry = v/256;
-            v %= 256;
-            
-            res.append(Memory(&v, 1));
-            
-        }
-        
-        while (carry) {
-            int v = carry % 256;
-            carry = carry / 256;
-            
-            res.append(Memory(&v, 1));
-        }
-        
-        value = res;
-        
+        value = byteAddition(this->value, val.value);
         return *this;
     }
     
@@ -128,6 +96,36 @@ namespace nrcore {
         return 0;
     }
 
+    Memory Integer::clearBits(const Memory &subject, const Memory &bits) {
+        Memory res = subject.getMemory();
+        Memory b = bits.getMemory();
+        
+        int len = (int)res.length();
+        
+        if (b.length() < len) {
+            ByteArray _b(b, (int)b.length());
+            int needed = ((int)len - (int)_b.length());
+            int tmp = 0;
+            int inserted = 0;
+            
+            while (needed) {
+                _b.insert(0, (char*)&tmp, inserted = (needed > 4 ? 4 : needed));
+                needed -= inserted;
+            }
+            
+            b = _b;
+        } else if (b.length() > len) {
+            int diff = (int)(b.length() - len);
+            b = Memory(&b.getPtr()[diff], len);
+        }
+        
+        for (int i=0; i<len; i++) {
+            res[i] ^= b[i];
+        }
+        
+        return res;
+    }
+
     Memory Integer::byteAddition(const Memory &val1, const Memory &val2) {
         const Memory *m1, *m2;
         ByteArray result;
@@ -155,6 +153,14 @@ namespace nrcore {
             carry = value>>8;
             index++;
         } while (carry);
+        
+        return result;
+    }
+
+    Memory Integer::byteMultiplication(const Memory &val, const Memory &mul) {
+        ByteArray multiplier, result;
+        
+        multiplier = ByteArray(mul.getMemory(), (int)mul.length());
         
         return result;
     }
