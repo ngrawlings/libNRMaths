@@ -56,7 +56,7 @@ namespace nrcore {
         return ret;
     }
     
-    Float& Float::initHexadecimal(String value, int decimal_bits) {
+    Float Float::initHexadecimal(String value, int decimal_bits) {
         ByteArray val = ByteArray::fromHex(value);
         
         int decimal_offset = decimal_bits/8;
@@ -71,11 +71,19 @@ namespace nrcore {
         
         ByteArray integer = val.subBytes(0, decimal_offset+1);
         
+        return Float(1, 10, 4);
     }
     
-    Float& Float::initDecimal(String value) {
-        //Array<unsigned char> integer, decimal;
+    Float Float::initDecimal(String value) {
+        int exponent = 0;
         
+        size_t len = value.length();
+        for (size_t i=0; i<len; i++) {
+            char digit = value.operator char *()[i];
+            digit -= 48;
+            
+        }
+        return Float(1, 10, 4);
     }
     
 }

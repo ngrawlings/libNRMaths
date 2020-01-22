@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97A2B71B23D85C5500732791 /* Integer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97A337D322A53AEA007341E7 /* Integer.cpp */; };
 		97A337D522A53AEA007341E7 /* Integer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97A337D322A53AEA007341E7 /* Integer.cpp */; };
 		97A337D622A53AEA007341E7 /* Integer.h in Headers */ = {isa = PBXBuildFile; fileRef = 97A337D422A53AEA007341E7 /* Integer.h */; };
 		97C23F3C229B1503006952E4 /* Float.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97C23F3A229B1503006952E4 /* Float.cpp */; };
@@ -160,7 +161,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Liquidsoft Studio";
 				TargetAttributes = {
 					97C23F31229AB04B006952E4 = {
@@ -177,6 +178,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 97C23F29229AB04B006952E4;
 			productRefGroup = 97C23F33229AB04B006952E4 /* Products */;
@@ -204,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97C23F56229B2645006952E4 /* Float.cpp in Sources */,
+				97A2B71B23D85C5500732791 /* Integer.cpp in Sources */,
 				97C23F55229B2639006952E4 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,6 +370,7 @@
 		97C23F52229B2583006952E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4MASABRRSM;
 				LIBRARY_SEARCH_PATHS = (
@@ -381,6 +385,7 @@
 		97C23F53229B2583006952E4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4MASABRRSM;
 				LIBRARY_SEARCH_PATHS = (

@@ -31,8 +31,8 @@ namespace nrcore {
         
         String toString(int base);
         
-        static Float &initHexadecimal(String value, int decimals = 0);
-        static Float &initDecimal(String value);
+        static Float initHexadecimal(String value, int decimals = 0);
+        static Float initDecimal(String value);
         
     protected:
         ByteArray integer;

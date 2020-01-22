@@ -21,7 +21,7 @@ namespace nrcore {
         Integer(ByteArray &value);
         Integer(const Integer &val);
         virtual ~Integer();
-        
+
         Integer& add(const Integer &val);
         Integer& subtract(const Integer &val);
         Integer& multiply(const Integer &val);
@@ -30,13 +30,18 @@ namespace nrcore {
         Integer& power(const unsigned long val);
         Integer& sqrt();
         
+        static int bitCount(const Memory &val);
+        static Memory byteAddition(const Memory &val1, const Memory &val2);
+        
+        size_t length() const;
+        
         String toString(int base);
         
     protected:
         bool sign;
         ByteArray value;
-        
-        void fromDecimal();
+
+        void fromDecimal(String value);
     };
     
 }

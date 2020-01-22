@@ -7,14 +7,19 @@
 //
 
 #include <iostream>
-#include <libnrmaths/Float.h>
+#include <libnrmaths/Integer.h>
 
 using namespace nrcore;
 
 int main(int argc, const char * argv[]) {
-    Float f("10000000000000000001", 10, 64);
+    const char b1[] = {static_cast<char>(0xAA), static_cast<char>(0xAA), static_cast<char>(0xAA), static_cast<char>(0xAA)};
+    const char b2[] = {static_cast<char>(0xAA), static_cast<char>(0xAA), static_cast<char>(0xAA), static_cast<char>(0xAA)};
     
-    std::cout << f.toString(10) << "\n";
+    Memory v1(&b1, 4);
+    Memory v2(&b2, 4);
+    Integer::byteAddition(v1, v2);
+    
+    //std::cout << f.toString(10) << "\n";
     
     return 0;
 }

@@ -36,28 +36,23 @@ namespace nrcore {
     }
     
     void Integer::fromDecimal(String value) {
-        int len = value.length();
-        int power = 0;
+        int exponent = 0;
         
-        do {
-            int offset = len > 8 ? len-8 : 0;
-            len -= offset;
-            power += offset;
-            
-            String chunk = value.substr(offset);
-            value = value.substr(offset, len);
-            
-            int val = atoi(chunk);
-            
-        
-        } while(value.length());
+        size_t len = value.length();
+        for (size_t i=0; i<len; i++) {
+            char digit = value.operator char *()[i];
+            digit -= 48;
+            if (exponent) {
+                
+            }
+        }
     }
     
     Integer& Integer::add(const Integer &val) {
-        ByteArray v1, v2;
-        bool cary = false;
+        ByteArray v1, v2, res;
+        int carry = 0;
         
-        if (value.length() > val.lrngth()) {
+        if (value.length() > val.length()) {
             v1 = value;
             v2 = val.value;
         } else {
@@ -65,35 +60,103 @@ namespace nrcore {
             v2 = value;
         }
         
-        int len = v2.length();
-        for (int i=0; i<len: i++) {
+        Memory m1 = v1;
+        Memory m2 = v2;
+        
+        int len = (int)v2.length();
+        for (int i=0; i<len; i++) {
+            int v = carry + m1[i] + m2[i];
+            
+            carry = v/256;
+            v %= 256;
+            
+            res.append(Memory(&v, 1));
             
         }
         
+        while (carry) {
+            int v = carry % 256;
+            carry = carry / 256;
+            
+            res.append(Memory(&v, 1));
+        }
+        
+        value = res;
+        
+        return *this;
     }
     
     Integer& Integer::subtract(const Integer &val) {
-        
+        return *this;
     }
     
     Integer& Integer::multiply(const Integer &val) {
-        
+        return *this;
     }
     
     Integer& Integer::divide(const Integer &val) {
-        
+        return *this;
     }
     
     Integer& Integer::power(const unsigned long val) {
-        
+        return *this;
     }
     
     Integer& Integer::sqrt() {
-        
+        return *this;
+    }
+
+    size_t Integer::length() const {
+        return value.length();
     }
     
     String Integer::toString(int base) {
+        return String("");
+    }
+
+    int Integer::bitCount(const Memory &val) {
+        Memory m = val.getMemory();
         
+        int len = (int)val.length()*8;
+        for (int i=0; i<len; i++) {
+            int byte = i/8;
+            int bit = i%8;
+            
+            if (m[byte] & (1>>bit))
+                return len-i;
+        }
+        return 0;
+    }
+
+    Memory Integer::byteAddition(const Memory &val1, const Memory &val2) {
+        const Memory *m1, *m2;
+        ByteArray result;
+        
+        if (val1.length() >= val2.length()) {
+            m1 = &val1;
+            m2 = &val2;
+        } else {
+            m1 = &val2;
+            m2 = &val1;
+        }
+        
+        int index = 0;
+        int carry = 0;
+        int value = 0;
+        
+        do {
+            if (index < m2->length()) {
+                value = carry + ((unsigned char)m1->getByte(index)) + ((unsigned char)m2->getByte(index));
+                carry = 0;
+            } else
+                value = carry;
+            
+            result.insert(0, (char*)&value, 1);
+            carry = value>>8;
+            index++;
+        } while (carry);
+        
+        return result;
     }
     
 }
