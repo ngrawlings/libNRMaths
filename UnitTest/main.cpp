@@ -28,6 +28,17 @@ int main(int argc, const char * argv[]) {
     
     Integer::clearBits(v1, v2);
     
+    int s = 0xAAAACCCC;
+    int m = 8;
+    
+    v1 = Memory(&s, 4);
+    v2 = Memory(&m, 4);
+    
+    Integer::byteMultiplication(v1, v2);
+    
+    Memory div = Integer::div2(v1, 12);
+    Memory rem = Integer::rem2(v1, 12);
+    
     //std::cout << f.toString(10) << "\n";
     
     return 0;
